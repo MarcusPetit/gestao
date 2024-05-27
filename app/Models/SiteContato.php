@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class SiteContato extends AnotherClass
+class SiteContato extends Model
 {
-
+    use HasFactory;
 }
