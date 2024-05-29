@@ -6,5 +6,6 @@ class SobreNosController extends Controller
 {
     public function sobreNos()
     {
+        return view('sobre');
     }
 }

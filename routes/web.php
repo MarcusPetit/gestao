@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
+Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('index');
 
-Route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobre');
+Route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('sobre');
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
+Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('contato');
+Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('contato');
 
 Route::get('/login', function () {
     return 'Login';

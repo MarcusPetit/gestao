@@ -10,7 +10,7 @@
 <body>
 
     @yield('principal_conteudo')
-    iyield('sobre_conteudo')
+    @yield('sobre_conteudo')
     @yield('sobre_conteudo')
     @yield('contato_conteudo')
 </body>
