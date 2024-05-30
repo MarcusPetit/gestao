@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('index');
+Route::post('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('principal');
+
 
 Route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('sobre');
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('contato');
-Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('contato');
+Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('contato');
+Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('contato');
 
 Route::get('/login', function () {
     return 'Login';

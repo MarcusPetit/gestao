@@ -12,8 +12,8 @@ class MotivoContatoSeeder extends Seeder
      */
     public function run(): void
     {
-        MotivoContato::create(['motivo_contato' => 'Duvida']);
-        MotivoContato::create(['motivo_contato' => 'Elogio']);
-        MotivoContato::create(['motivo_contato' => 'Reclamacao']);
+        MotivoContato::create([ 'id' => 1 , 'motivo_contato' => 'Duvida']);
+        MotivoContato::create(['id' => 2 ,'motivo_contato' => 'Elogio']);
+        MotivoContato::create(['id' => 3 ,'motivo_contato' => 'Reclamacao']);
     }
 }

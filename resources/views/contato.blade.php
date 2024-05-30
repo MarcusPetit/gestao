@@ -22,32 +22,8 @@
 
     <div class="informacao-pagina">
         <div class="contato-principal">
-            <form action={{ route('contato') }} method="post">
-                @csrf
-                <input type="text" name='nome' value="{{old('nome')}}" placeholder="Nome" class="borda-preta">
-                <br>
-                <input type="text" name='telefone' value="{{old('telefone')}}" placeholder="Telefone" class="borda-preta">
-                <br>
-                <input type="email" name='email' value="{{old('email')}}" placeholder="E-mail" class="borda-preta">
-                <br>
-                <select name='motivo' class="borda-preta">
-                    <option value="">Qual o motivo do contato?</option>
-                    <option value="1" {{ old('motivo') == 1 ? 'selected' : '' }}>Dúvida</option>
-                    <option value="2" {{ old('motivo') == 2 ? 'selected' : '' }}>Elogio</option>
-                    <option value="3" {{ old('motivo') == 3 ? 'selected' : '' }}>Reclamação</option>
-                </select>
-                <br>
-
-                <textarea name="mensagem" class="black">{{ (old('mensagem') != '') ? old('mensagem') : 'Preencha aqui a sua mensagem' }}</textarea>
-
-                <br>
-                <button type="submit" class="borda-preta">ENVIAR</button>
-            </form>
-            <div style="position: absolute; top: 0px; left: 0px; width: 100%; background: red; ">
-                <pre>
-                {{print_r($errors)}}
-                </pre>
-            </div>
+            @component('layouts.formulario', ['classe' => 'borda-branca', 'motivo_contatos' => $motivo_contatos , 'route' => route ('contato')])
+            @endcomponent
         </div>
     </div>
 </div>
