@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class AlterTableSiteContatosAddFkMotivoContatos extends Migration
 {
@@ -14,9 +14,8 @@ class AlterTableSiteContatosAddFkMotivoContatos extends Migration
      */
     public function up()
     {
-        // Adicionando a coluna motivo_contatos_id
         Schema::table('site_contatos', function (Blueprint $table) {
-            $table->unsignedBigInteger('motivo_contatos_id')->after('id'); // Ajuste a posição se necessário
+            $table->unsignedBigInteger('motivo_contatos_id')->after('id');
         });
 
         // Atribuindo motivo para a nova coluna motivo_contatos_id
@@ -59,4 +58,3 @@ class AlterTableSiteContatosAddFkMotivoContatos extends Migration
         });
     }
 }
-

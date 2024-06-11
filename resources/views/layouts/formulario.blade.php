@@ -2,6 +2,9 @@
 <form action={{ $route }} method="post">
     @csrf
     <input name="nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class=borda_branca>
+    @if ($errors->@hasSection ('nome')
+      {{$errors->first('nome')}}
+    @endif
     <br>
     <input name="telefone" value="{{ old('telefone') }}" type="text" placeholder="Telefone" class=borda_branca>
     <br>
@@ -21,8 +24,11 @@
     <button type="submit" class=borda_branca>ENVIAR</button>
 </form>
 
-<div style="position:absolute; top:0px; width:100%; background:red">
-    <pre>
-    {{ print_r($errors) }}
-    </pre>
-</div>
+@if ($errors->any())
+    <div style="position:absolute; top:0px; width:100%; background:red">
+        <pre>
+        {{ print_r($errors) }}
+        </pre>
+    </div>
+
+@endif
