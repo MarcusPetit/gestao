@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -19,6 +21,10 @@ return new class extends Migration
             $table->string('email', 100);
             $table->integer('motivo');
             $table->text('mensagem');
+        });
+        Schema::create('site_novo', function (Blueprint $table) {
+            $table->id();
+
         });
     }
 
