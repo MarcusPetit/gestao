@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('index');
+Route::middleware(LogAcessoMiddleware::class)->get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('index');
 Route::post('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('principal');
-
 
 Route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('sobre');
 
@@ -26,5 +26,5 @@ Route::prefix('/app')->group(function () {
 });
 
 Route::fallback(function () {
-    return "404 personalizado";
+    return '404 personalizado';
 });
