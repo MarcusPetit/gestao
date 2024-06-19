@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class AutenticacaoMiddleware
 {
@@ -13,19 +12,15 @@ class AutenticacaoMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $modelo_metodo, $perfil): Response
+    public function handle(Request $request, Closure $next)
     {
-        if ($modelo_metodo == 'padrao') {
-
-            echo 'validando parametro <br>'.$perfil;
-        }
-
-        if (false) {
+        //iniciar sessao ou recaminhar para login
+        session_start();
+        if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
+
         } else {
-
-            return Response('Acesso negado! Rota exige autenticacao');
-
+            return redirect()->route('login', ['erro' => 2]);
         }
     }
 }

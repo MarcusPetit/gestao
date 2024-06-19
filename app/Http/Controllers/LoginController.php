@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
+{
+    public function login(Request $request)
+    {
+        //recebendo o erro da rota de login ou autenticacao e mostrando o erro.
+        $erro = '';
+
+        if ($request->get('erro') == 1) {
+            $erro = ' Usuario nao cadastrado';
+        }
+        if ($request->get('erro') == 2) {
+            $erro = 'Necessario realizar login para acessar a pagina';
+        }
+
+        return view('login', ['titulo' => 'login', 'erro' => $erro]);
+
+    }
+
+    public function autenticar(Request $request)
+    {
+        $regras = [
+            'usuario' => 'email',
+            'senha' => 'required',
+        ];
+        $retorno = [
+            'usuario.email' => 'O campo do usuario e obrigatorio',
+            'senha.required' => 'Senha obrigatoria',
+        ];
+        $request->validate($regras, $retorno);
+
+        //recuperar parametros
+        $email = $request->get('usuario');
+        $password = $request->get('senha');
+
+        //iniciar model user
+        $user = new User();
+
+        $usuario = $user->where('email', $email)
+            ->where('password', $password)
+            ->get()
+            ->first();
+
+        //iniciar a sessao com base no login e mandar para as outras rotas
+        if (isset($usuario->name)) {
+            session_start();
+            $_SESSION['nome'] = $usuario->name;
+            $_SESSION['email'] = $usuario->email;
+
+            return redirect()->route('app.clientes');
+        } else {
+
+            return redirect()->route('login', ['erro' => 1]);
+        }
+
+    }
+    //
+}
