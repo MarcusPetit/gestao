@@ -9,14 +9,13 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        //recebendo o erro da rota de login ou autenticacao e mostrando o erro.
         $erro = '';
 
         if ($request->get('erro') == 1) {
             $erro = ' Usuario nao cadastrado';
         }
         if ($request->get('erro') == 2) {
-            $erro = 'Necessario realizar login para acessar a pagina';
+            $erro = ' Usuario nao cadastrado';
         }
 
         return view('login', ['titulo' => 'login', 'erro' => $erro]);
@@ -47,18 +46,21 @@ class LoginController extends Controller
             ->get()
             ->first();
 
-        //iniciar a sessao com base no login e mandar para as outras rotas
         if (isset($usuario->name)) {
             session_start();
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.home');
         } else {
 
             return redirect()->route('login', ['erro' => 1]);
         }
 
     }
-    //
+
+    public function sair()
+    {
+        return 'sair';
+    }
 }
