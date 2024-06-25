@@ -1,4 +1,4 @@
-@extends('layouts.basicoRestrito')
+@extends('app.layouts.basico')
 @section('conteudo')
     <div class="topo">
 
@@ -15,5 +15,6 @@
             </ul>
         </div>
     </div>
-    <br><br><br>Fornecedor
+
+    <br><br><br><br>Fornecedor
 @endsection

@@ -1,4 +1,6 @@
 @extends('app.layouts.basico')
+@section('titulo', 'Home')
+
 @section('conteudo')
     <div class="topo">
 
@@ -16,5 +18,5 @@
         </div>
     </div>
 
-    <br><br><br>Home
+    <br><br><bR><br>Home
 @endsection
