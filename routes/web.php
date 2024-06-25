@@ -30,8 +30,13 @@ Route::middleware('autenticacao:padrao,marcus', 'logAcess')->prefix('/app')->gro
 
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
 
+
     Route::get('/fornecedor', [FornecedorController::class, 'index'])
         ->name('app.fornecedor');
+    Route::post('/fornecedor/listar', [FornecedorController::class, 'listar'])
+        ->name('app.fornecedor.listar');
+    Route::get('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])
+        ->name('app.fornecedor.adicionar');
 
     Route::get('/produto', [ProdutoController::class, 'produto'])->name('app.produto');
 });
