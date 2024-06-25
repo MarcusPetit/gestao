@@ -31,7 +31,8 @@
         </div>
         <div class="informacao-pagina">
             <div class="informacao-pagina-inputs">
-                <form action="" method="POST">
+                <form action="{{route('app.fornecedor.adicionar')}}" method="POST">
+                    @csrf
                     <input type="text" name="nome" placeholder="Nome" class="borda-preta">
                     <input type="text" name="site" placeholder="Site" class="borda-preta">
                     <input type="text" name="uf" placeholder="UF" class="borda-preta">
