@@ -11,6 +11,7 @@
                 <li><a href="{{ route('index') }}">Principal</a></li>
                 <li><a href="{{ route('sobre') }}">Sobre Nós</a></li>
                 <li><a href="{{ route('contato') }}">Contato</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </div>
     </div>
@@ -19,6 +20,7 @@
         <div class="titulo-pagina">
             <h1>Entre em contato conosco</h1>
         </div>
+
 
         <div class="informacao-pagina">
             <div class="contato-principal">
@@ -38,10 +40,10 @@
     </div>
     <div class="rodape">
         <div class="redes-sociais">
-            <h2>Redes sociais</h2>
-            <img src="img/facebook.png">
-            <img src="img/linkedin.png">
-            <img src="img/youtube.png">
+            <h2>Redes sociais</:TSInstall php_onlyh2>
+                <img src="img/facebook.png">
+                <img src="img/linkedin.png">
+                <img src="img/youtube.png">
         </div>
         <div class="area-contato">
             <h2>Contato</h2>

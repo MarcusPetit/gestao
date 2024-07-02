@@ -24,17 +24,12 @@
 
         <div class="menu">
             <ul>
-                <il><a href="{{route('app.fornecedor.adicionar')}}">Novo</a></il>
-                <il><a href="{{route('app.fornecedor')}}">Pesquisar</a></il>
+                <il><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></il>
+                <il><a href="{{ route('app.fornecedor') }}">Pesquisar</a></il>
             </ul>
 
         </div>
-        <div class="informacao-pagina">
-            <div class="informacao-pagina-inputs">
-              ..listar
 
-            </div>
-
-        </div>
+        LIstar....
     </div>
 @endsection

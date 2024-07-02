@@ -7,26 +7,33 @@ use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->input('_token') != '') {
+        }
+
         return view('app.fornecedor.index');
     }
 
-    public function listar() {
+    public function listar()
+    {
         return view('app.fornecedor.listar');
     }
 
-    public function adicionar(Request $request) {
-        if($request->input('_token') != ''){
+    public function adicionar(Request $request)
+    {
+
+        if ($request->input('_token') != '') {
             //validando formulario para cadastro
 
             $regras = [
-                'nome'=> 'required|min:3|max:40',
-                'site'=> 'required',
+                'nome' => 'required|min:3|max:40',
+                'site' => 'required',
                 'uf' => 'required|min:2|max:2',
-                'email' => 'email',
+                'email' => 'emai'
             ];
 
+            //retorno da mensagem de erro
             $feedback = [
                 'required' => 'O campo :atribute deve ser preenchido',
                 'nome.min' => ' O campo dever ter no maximo 3 caracteres',
@@ -40,8 +47,11 @@ class FornecedorController extends Controller
 
             $fornecedor = new Fornecedor();
 
-            $fornecedor->create($request->all());
+            $fornecedor->create(
+                $request->all()
+            );
         }
-        return view('app.fornecedor.adicionar');
+        $msg = "Cadastro realizdo com sucesso";
+        return view('app.fornecedor.adicionar', ['msg' => $msg]);
     }
 }
