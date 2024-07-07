@@ -30,7 +30,7 @@ class FornecedorController extends Controller
                 'nome' => 'required|min:3|max:40',
                 'site' => 'required',
                 'uf' => 'required|min:2|max:2',
-                'email' => 'emai'
+                'email' => 'emai',
             ];
 
             //retorno da mensagem de erro
@@ -40,7 +40,7 @@ class FornecedorController extends Controller
                 'nome.max' => ' O campo dever ter no maximo 40 caracteres',
                 'uf.min' => ' O campo dever ter no maximo 2 caracteres',
                 'uf.max' => ' O campo dever ter no maximo 2 caracteres',
-                'email.email' => ' O campo email nao foi preenchido corretamente'
+                'email.email' => ' O campo email nao foi preenchido corretamente',
             ];
 
             $request->validate($regras, $feedback);
@@ -51,7 +51,8 @@ class FornecedorController extends Controller
                 $request->all()
             );
         }
-        $msg = "Cadastro realizdo com sucesso";
+        $msg = 'Cadastro realizdo com sucesso';
+
         return view('app.fornecedor.adicionar', ['msg' => $msg]);
     }
 }
