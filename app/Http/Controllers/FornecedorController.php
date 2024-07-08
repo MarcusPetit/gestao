@@ -22,6 +22,7 @@ class FornecedorController extends Controller
 
     public function adicionar(Request $request)
     {
+        $msg = '';
 
         if ($request->input('_token') != '') {
             //validando formulario para cadastro
@@ -30,7 +31,7 @@ class FornecedorController extends Controller
                 'nome' => 'required|min:3|max:40',
                 'site' => 'required',
                 'uf' => 'required|min:2|max:2',
-                'email' => 'emai',
+                'email' => 'email',
             ];
 
             //retorno da mensagem de erro
@@ -50,8 +51,9 @@ class FornecedorController extends Controller
             $fornecedor->create(
                 $request->all()
             );
+
+            $msg = 'Cadastro realizdo com sucesso';
         }
-        $msg = 'Cadastro realizdo com sucesso';
 
         return view('app.fornecedor.adicionar', ['msg' => $msg]);
     }

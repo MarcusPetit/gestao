@@ -19,7 +19,7 @@
 
     <div class ="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Adicioar</p>
+            <p>Fornecedor Adicioar</p>
         </div>
 
         <div class="menu">
