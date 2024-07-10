@@ -30,7 +30,8 @@ class FornecedorController extends Controller
     {
         $msg = '';
 
-        if ($request->input('_token') != '') {
+        //incluir
+        if ($request->input('_token') != '' && $request->input('id') == '') {
             //validando formulario para cadastro
 
             $regras = [
@@ -61,6 +62,28 @@ class FornecedorController extends Controller
             $msg = 'Cadastro realizdo com sucesso';
         }
 
+        //editar
+        if ($request->input('_token') != '' && $request->input('id') != '') {
+            $fornecedor = Fornecedor::find($request->input('id'));
+            $update = $fornecedor->update($request->all());
+
+            if ($update) {
+                $msg = 'updadte com sucesso';
+            } else {
+                $msg = 'updade sem sucesso';
+            }
+
+            return redirect()->route('app.fornecedor.editar', ['id' => $request->input('id'), 'msg' => $msg]);
+        }
+
         return view('app.fornecedor.adicionar', ['msg' => $msg]);
+    }
+
+    public function editar($id)
+    {
+        $fornecedor = Fornecedor::find($id);
+
+        return view('app.fornecedor.adicionar', ['fornecedor' => $fornecedor]);
+
     }
 }

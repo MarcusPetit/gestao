@@ -40,6 +40,8 @@ Route::middleware('autenticacao:padrao,marcus', 'logAcess')->prefix('/app')->gro
         ->name('app.fornecedor.adicionar');
 
     Route::get('/produto', [ProdutoController::class, 'produto'])->name('app.produto');
+
+    Route::get('/fornecedor/editar{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
 });
 
 Route::fallback(function () {
