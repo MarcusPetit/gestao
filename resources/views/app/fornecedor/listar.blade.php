@@ -63,6 +63,10 @@
                     </tbody>
                 </table>
 
+                <div class="paginate">
+                    {{ $fornecedores->appends($request)->links() }}
+                </div>
+
 
             </div>
         </div>

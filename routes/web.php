@@ -34,6 +34,8 @@ Route::middleware('autenticacao:padrao,marcus', 'logAcess')->prefix('/app')->gro
         ->name('app.fornecedor');
     Route::post('/fornecedor/listar', [FornecedorController::class, 'listar'])
         ->name('app.fornecedor.listar');
+    Route::get('/fornecedor/listar', [FornecedorController::class, 'listar'])
+        ->name('app.fornecedor.listar');
     Route::get('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])
         ->name('app.fornecedor.adicionar');
     Route::post('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])
