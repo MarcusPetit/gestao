@@ -12,7 +12,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        return view('app.produto');
+        echo "como vai";
     }
 
     /**
