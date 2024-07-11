@@ -51,6 +51,7 @@ Route::middleware('autenticacao:padrao,marcus', 'logAcess')->prefix('/app')->gro
         'produto',
         ProdutoController::class
     );
+   
 });
 
 Route::fallback(function () {
