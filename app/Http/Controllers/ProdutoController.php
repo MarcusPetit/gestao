@@ -35,7 +35,27 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produto= new Produto();
+        $regras = [
+            'name' => 'required|min:3|max:40',
+            'descricao' => 'required|min:3|max:1000',
+            'peso' => 'required|integer',
+            'unidade_id' => 'exists:unidades,id',
+
+        ];
+        $feedbacks = [
+            'required' => 'O campo nome deve ser preenchido',
+            'name.min' => 'Limite minimo para preencher',
+            'name.max' => 'Limite maximo para preencher',
+            'descricao.min' => 'Limite minimo para preencher',
+            'descricao.max' => 'Limite maximo para preencher',
+            'peso.integer' => 'Deve ser um inteiro',
+            'unidade_id.exists' => 'Unidade de medida informada nao existe',
+
+        ];
+
+        $request->validate($regras, $feedbacks);
+
+        $produto = new Produto();
         $produto->name = $request->name;
 
         $produto->descricao = $request->descricao;
@@ -44,8 +64,7 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-        return redirect()->route('produto.index', [ 'produto' => $produto]);
-
+        return redirect()->route('produto.index');
     }
 
     /**

@@ -41,17 +41,25 @@
                         <form method="post" action="{{ route('produto.store') }}">
                             <input type="hidden" name="id" value = "">
                             @csrf
-                            <input type="text" name="name" value="" placeholder="Nome" class="borda-preta">
-
-                            <input type="text" name="descricao" value="" placeholder="Descricao"
+                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Nome"
                                 class="borda-preta">
+                            {{ $errors->has('name') ? $errors->first('name') : '' }}
 
-                            <input type="text" name="peso" value="" placeholder="Peso" class="borda-preta">
+                            <input type="text" name="descricao" value="{{ old('descricao') }}" placeholder="Descricao"
+                                class="borda-preta">
+                            {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
+
+                            <input type="text" name="peso" value="{{ old('peso') }}" placeholder="Peso"
+                                class="borda-preta">
+                            {{ $errors->has('peso') ? $errors->first('peso') : '' }}
                             <select name="unidade_id" id="unidade_id">
                                 <option value="">-- Selecione a Unidade de Medida --</option>
 
                                 @foreach ($unidades as $unidade)
-                                    <option value="{{ $unidade->id }}">{{ $unidade->descricao }}</option>
+                                    <option value="{{ $unidade->id }}"
+                                        {{ old('unidade_id') == $unidade->id ? 'selected' : '' }}>
+                                        {{ $unidade->descricao }}
+                                    </option>
                                 @endforeach
                             </select>
                             <button type="submit" class="borda-preta">Cadastrar</button>
