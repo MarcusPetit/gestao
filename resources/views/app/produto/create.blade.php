@@ -38,7 +38,7 @@
                 <div class="informacao-pagina">
                     {{ $msg ?? '' }}
                     <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                        <form method="post" action="{{ route('app.fornecedor.adicionar') }}">
+                        <form method="post" action="{{ route('produto.store') }}">
                             <input type="hidden" name="id" value = "">
                             @csrf
                             <input type="text" name="name" value="" placeholder="Nome" class="borda-preta">
@@ -47,7 +47,7 @@
                                 class="borda-preta">
 
                             <input type="text" name="peso" value="" placeholder="Peso" class="borda-preta">
-                            <select name="unidade_is" id="">
+                            <select name="unidade_id" id="unidade_id">
                                 <option value="">-- Selecione a Unidade de Medida --</option>
 
                                 @foreach ($unidades as $unidade)

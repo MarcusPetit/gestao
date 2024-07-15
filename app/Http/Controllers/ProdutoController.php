@@ -15,6 +15,7 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::paginate(10);
 
+
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
 
@@ -34,6 +35,17 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $produto= new Produto();
+        $produto->name = $request->name;
+
+        $produto->descricao = $request->descricao;
+        $produto->peso = $request->peso;
+        $produto->unidade_id = $request->unidade_id;
+
+        $produto->save();
+
+        return redirect()->route('produto.index', [ 'produto' => $produto]);
+
     }
 
     /**
