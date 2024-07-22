@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,7 +52,9 @@ Route::middleware('autenticacao:padrao,marcus', 'logAcess')->prefix('/app')->gro
         'produto',
         ProdutoController::class
     );
-   
+    //produto detalhes
+    Route::resource('produto-detalhe' , ProdutoDetalheController::class);
+
 });
 
 Route::fallback(function () {

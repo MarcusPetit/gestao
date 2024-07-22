@@ -20,11 +20,8 @@
 
     <div class ="conteudo-pagina">
         <div class="titulo-pagina-2">
-            @if (isset($produto->id))
-                <p>Editar Produto</p>
-            @else
-                <p>Adicionar Produto</p>
-            @endif
+            <p>Adicionar Detalhe do Produto</p>
+
         </div>
 
         <div class="menu">
@@ -37,7 +34,8 @@
 
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                @component('app.produto._components.form_create_edit', ['unidades' => $unidades])
+                @component('app.produto_detalhe._components.form_create_edit', ['unidades' => $unidades])
+                    ;
                 @endcomponent
             </div>
         </div>
