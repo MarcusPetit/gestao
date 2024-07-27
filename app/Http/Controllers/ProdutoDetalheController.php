@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use App\Models\ProdutoDetalhe;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
@@ -48,6 +49,7 @@ class ProdutoDetalheController extends Controller
     public function edit(ProdutoDetalhe $produtoDetalhe)
     {
         $unidades = Unidade::all();
+        
 
         return view('app.produto_detalhe.edit', ['produto_detalhe' => $produtoDetalhe, 'unidades' => $unidades]);
     }

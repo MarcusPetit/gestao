@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     use HasFactory;
+
+    protected $table = 'produtos'
     protected $fillable = ['name', 'descricao', 'peso', 'unidade_id'];
+
+    public function produtoDetalhe()
+    {
+        return $this->hasOne(ProdutoDetalhe::class, 'produto_id');
+
+    }
 }

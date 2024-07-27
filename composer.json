@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -10,6 +13,7 @@
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.1",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
@@ -23,8 +27,13 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
@@ -49,7 +58,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "config": {
@@ -62,5 +73,10 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "ide-helper": [
+        "@php artisan ide-helper:generate",
+        "@php artisan ide-helper:meta",
+        "@php artisan ide-helper:models -N --reset"
+    ]
 }

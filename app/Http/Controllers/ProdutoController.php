@@ -15,7 +15,6 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::paginate(10);
 
-
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
 
@@ -28,7 +27,6 @@ class ProdutoController extends Controller
 
         return view('app.produto.create', ['unidades' => $unidades]);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -55,7 +53,7 @@ class ProdutoController extends Controller
 
         $request->validate($regras, $feedbacks);
 
-        $produto = new Produto();
+        $produto = new Produto;
         $produto->name = $request->name;
 
         $produto->descricao = $request->descricao;
@@ -81,7 +79,8 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-        return view('app.produto.create' , ['produto' => $produto, 'unidades'=>$unidades]);
+
+        return view('app.produto.create', ['produto' => $produto, 'unidades' => $unidades]);
     }
 
     /**
@@ -90,7 +89,8 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
         $produto->update($request->all());
-        return redirect()->route('produto.show' , ['produto' => $produto]);
+
+        return redirect()->route('produto.show', ['produto' => $produto]);
     }
 
     /**
@@ -99,6 +99,7 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         $produto->delete();
+
         return redirect()->route('produto.index');
     }
 }
