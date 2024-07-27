@@ -33,6 +33,7 @@
 
         <div class = 'informacao-pagina'>
             <div class = " width: 90%; margin-left: margin-rigt: auto;">
+                {{ $produtos->tojson() }}
 
 
                 <table border='1' width=100%>
