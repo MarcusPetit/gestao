@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('app.cliente');
+        return view('app.cliente.index', ['clientes' => $clientes = DB::table('clientes')->paginate(10) , 'request' =>$request->all()]);
     }
 
     /**
