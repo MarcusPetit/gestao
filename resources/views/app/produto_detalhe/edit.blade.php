@@ -35,8 +35,9 @@
             <div>Nome: {{ $produto_detalhe->produto->name }}</div>
             <div>Descricao: {{ $produto_detalhe->produto->descricao }} </div>
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                @component('app.produto_detalhe._components.form_create_edit', [
-                    'produto_detalhe' => $produto_detalhe,
+                @component('app.produto._components.form_create_edit', [
+                    'produto' => $produto,
+                    'fornecedores' => $fornecedores,
                     'unidades' => $unidades,
                 ])
                 @endcomponent
