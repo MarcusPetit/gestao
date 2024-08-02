@@ -32,7 +32,7 @@
         </div>
 
         <div class = 'informacao-pagina'>
-            <div class = " width: 90%; margin-left: margin-rigt: auto;">
+            <div class = "width: 90%; margin-left: margin-rigt: auto;">
 
                 <table border='1' width=100%>
                     <thead>
@@ -55,7 +55,7 @@
 
                         @foreach ($produtos as $produto)
                             <tr>
-                                <td>{{ $produto->name }}</td>
+                                <td>{{ $produto->nome }}</td>
                                 <td>{{ $produto->descricao }}</td>
                                 <td>{{ $produto->fornecedor->nome }}</td>
                                 <td>{{ $produto->peso }}</td>

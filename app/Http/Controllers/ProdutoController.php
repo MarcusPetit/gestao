@@ -44,7 +44,7 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            "name" => "required|min:3|max:40",
+            "nome" => "required|min:3|max:40",
             "descricao" => "required|min:3|max:1000",
             "peso" => "required|integer",
             "unidade_id" => "exists:unidades,id",
@@ -53,8 +53,8 @@ class ProdutoController extends Controller
         ];
         $feedbacks = [
             "required" => "O campo nome deve ser preenchido",
-            "name.min" => "Limite minimo para preencher",
-            "name.max" => "Limite maximo para preencher",
+            "nome.min" => "Limite minimo para preencher",
+            "nome.max" => "Limite maximo para preencher",
             "descricao.min" => "Limite mínimo para preencher",
             "descricao.max" => "Limite máximo para preencher",
             "peso.integer" => "Deve ser um inteiro",
@@ -65,7 +65,7 @@ class ProdutoController extends Controller
         $request->validate($regras, $feedbacks);
 
         $produto = new Produto();
-        $produto->name = $request->name;
+        $produto->nome = $request->nome;
 
         $produto->descricao = $request->descricao;
         $produto->peso = $request->peso;
@@ -107,7 +107,7 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
         $regras = [
-            "name" => "required|min:3|max:40",
+            "nome" => "required|min:3|max:40",
             "descricao" => "required|min:3|max:1000",
             "peso" => "required|integer",
             "unidade_id" => "exists:unidades,id",
@@ -115,8 +115,8 @@ class ProdutoController extends Controller
         ];
         $feedbacks = [
             "required" => "O campo nome deve ser preenchido",
-            "name.min" => "Limite mínimo para preencher",
-            "name.max" => "Limite máximo para preencher",
+            "nome.min" => "Limite mínimo para preencher",
+            "nome.max" => "Limite máximo para preencher",
             "descricao.min" => "Limite mínimo para preencher",
             "descricao.max" => "Limite máximo para preencher",
             "peso.integer" => "Deve ser um inteiro",

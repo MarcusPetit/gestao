@@ -12,7 +12,7 @@ class Produto extends Model
 
     protected $table = 'produtos';
 
-    protected $fillable = ['name', 'descricao', 'peso', 'unidade_id', 'fornecedor_id'];
+    protected $fillable = ['nome', 'descricao', 'peso', 'unidade_id', 'fornecedor_id'];
 
     public function produtoDetalhe(): HasOne
     {
