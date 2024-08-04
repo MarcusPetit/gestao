@@ -61,8 +61,7 @@
                                             onclick="document.getElementById('form_{{ $cliente->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a
-                                        href="{{ route('cliente.edit', ['cliente' => $cliente->id, 'fornecedor' => $cliente->fornecedor_id]) }}">Editar</a>
+                                <td><a href="{{ route('cliente.edit', ['cliente' => $cliente->id]) }}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
