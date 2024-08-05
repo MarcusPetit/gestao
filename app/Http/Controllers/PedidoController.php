@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('app.pedido.index' , ['pedidos' => $pedido = DB::table('pedidos')->paginate(10) , 'request' => $request->all()]);
     }
 
     /**

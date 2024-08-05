@@ -21,12 +21,12 @@
 
     <div class ="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Listagem de cliente </p>
+            <p>Listagem de Perdidos </p>
         </div>
 
         <div class="menu">
             <ul>
-                <il><a href="{{ route('cliente.create') }}">Criar</a></il>
+                <il><a href="{{ route('pedido.create') }}">Criar</a></il>
                 <il><a href="">Pesquisar</a></il>
             </ul>
 
@@ -38,7 +38,7 @@
                 <table border='1' width=100%>
                     <thead>
                         <tr>
-                            <th>Nome</th>
+                            <th>ID Pedido</th>
 
                             <th></th>
                             <th></th>
@@ -48,21 +48,21 @@
 
                     <tbody>
 
-                        @foreach ($clientes as $cliente)
+                        @foreach ($pedidos as $pedido)
                             <tr>
-                                <td>{{ $cliente->nome }}</td>
-                                <td><a href="{{ route('cliente.show', ['cliente' => $cliente->id]) }}">Visualisar</a></td>
+                                <td>{{ $pedido->nome }}</td>
+                                <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id]) }}">Visualisar</a></td>
                                 <td>
-                                    <form id="form_{{ $cliente->id }}" method="post"
-                                        action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}">
+                                    <form id="form_{{ $pedido->id }}" method="post"
+                                        action="{{ route('pedido.destroy', ['pedido' => $pedido->id]) }}">
                                         @method('DELETE')
                                         @csrf
                                         <!--<button type="submit">Excluir</button>-->
                                         <a href="#"
-                                            onclick="document.getElementById('form_{{ $cliente->id }}').submit()">Excluir</a>
+                                            onclick="document.getElementById('form_{{ $pedido->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a href="{{ route('cliente.edit', ['cliente' => $cliente->id]) }}">Editar</a>
+                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -71,13 +71,8 @@
                 </table>
 
                 <div class="paginate">
-                    {{ $clientes->appends($request)->links() }}
+                    {{ $pedidos->appends($request)->links() }}
                 </div>
-
-
-
-
-
             </div>
         </div>
 
