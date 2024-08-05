@@ -32,26 +32,25 @@
 
         </div>
 
-        <div class = 'informacao-pagina'>
-            <div class = "width: 90%; margin-left: margin-rigt: auto;">
-
-                <table border='1' width=100%>
+        <div class="informacao-pagina">
+            <div style="width: 90%; margin-left: auto; margin-right: auto;">
+                <table border="1" width="100%">
                     <thead>
                         <tr>
                             <th>ID Pedido</th>
-
+                            <th>Cliente</th>
                             <th></th>
                             <th></th>
                             <th></th>
                         </tr>
-                    </thead>
+                        </head>
 
                     <tbody>
-
                         @foreach ($pedidos as $pedido)
                             <tr>
-                                <td>{{ $pedido->nome }}</td>
-                                <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id]) }}">Visualisar</a></td>
+                                <td>{{ $pedido->id }}</td>
+                                <td>{{ $pedido->cliente_id }}</td>
+                                <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id]) }}">Visualizar</a></td>
                                 <td>
                                     <form id="form_{{ $pedido->id }}" method="post"
                                         action="{{ route('pedido.destroy', ['pedido' => $pedido->id]) }}">
@@ -62,19 +61,16 @@
                                             onclick="document.getElementById('form_{{ $pedido->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}">Editar</a>
-                                </td>
+                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}">Editar</a></td>
                             </tr>
                         @endforeach
-
                     </tbody>
                 </table>
 
-                <div class="paginate">
-                    {{ $pedidos->appends($request)->links() }}
-                </div>
+                {{ $pedidos->appends($request)->links() }}
             </div>
         </div>
+    </div>
 
 
     </div>
