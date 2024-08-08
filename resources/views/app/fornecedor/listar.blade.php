@@ -10,7 +10,7 @@
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.home') }}">Home</a></li>
-                <li><a href="{{ route('app.cliente') }}">Clientes</a></li>
+                <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
                 <li><a href="{{ route('app.fornecedor') }}">Fornecedor</a></li>
                 <li><a href="{{ route('produto.index') }}">Produtos</a></li>
                 <li><a href="{{ route('app.sair') }}">Sair</a></li>
@@ -32,7 +32,7 @@
         </div>
 
         <div class = 'informacao-pagina'>
-            <div class = " width: 90%; margin-left: margin-rigt: auto;">
+            <div class = "width: 90%; margin-left: margin-rigt: auto;">
 
 
                 <table border='1' width=100%>
@@ -45,6 +45,7 @@
                             <th></th>
                             <th></th>
                         </tr>
+
                     </thead>
 
                     <tbody>
@@ -72,10 +73,10 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($fornecedor->produtos as $key => $produto)
-                                            <tr>
-                                                <td>{{ $produto->id }}</td>
-                                                <td>{{ $produto->name }}</td>
-                                            </tr>
+                                                <tr>
+                                                    <td>{{ $produto->id }}</td>
+                                                    <td>{{ $produto->name }}</td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
 
